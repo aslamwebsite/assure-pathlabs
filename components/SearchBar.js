@@ -4,7 +4,8 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
-import Image from 'next/image';
+import { AttachFile } from '@mui/icons-material';
+import { Attachement } from './svg-components/Attachement';
 
 const SearchBar = () => {
   const [inputValue, setInputValue] = useState('');
@@ -53,6 +54,7 @@ const SearchBar = () => {
               endAdornment: (
                 <div className='searchbutton'>
                     <SearchIcon color="action"/>
+                    
                 </div>
               )
             }}
@@ -72,7 +74,7 @@ const SearchBar = () => {
       )}
       <Button variant="outlined" className='MuiInputBase-root formbtn d-flex justify-content-between' fullWidth onClick={handleBrowseClick}>
       <label>Upload Prescription</label>
-      <span><Image src="/svg/attachment.svg" alt="My Icon" width={30} height={30} /></span>
+      <span><Attachement /></span>
       </Button>
       <input
         type="file"
@@ -80,9 +82,11 @@ const SearchBar = () => {
         style={{ display: 'none' }}
         onChange={handleFileSelect}
       />
-       <Button variant="outlined" className='MuiInputBase-root formbtn d-flex justify-content-between' fullWidth >
+        <div className='col-12 position-relative'>
+                       <Button variant="outlined" className='MuiInputBase-root formbtn d-flex justify-content-between' fullWidth >
       <label>Download Reports</label>
       </Button>
+                    </div>
       {/* <div className='MuiInputBase-root formbtn download'>
         <label>Download Reports</label>
         <span></span>

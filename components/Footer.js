@@ -1,10 +1,11 @@
 "use client"
 import React from 'react'
+import { Line } from "@/components/svg-components/Line";
 
 export const Footer = () => {
   return (
     <>
-     <footer className="col-12 float-start">
+     <footer className="col-12 float-start position-relative">
         <div className="footerwhite col-12 float-start">
           <div className="container">
             <div className="web-container">
@@ -69,6 +70,7 @@ export const Footer = () => {
               </div>
             </div>
           </div>
+        <Line className="svgwidthline position-absolute top-0 end-0"/>
         </div>
         <div className="footergray col-12 float-start">
           <div className="container">
@@ -104,7 +106,7 @@ export const Footer = () => {
                   <p className="m-0">&copy; 2023 All Rights Reserved. </p>
                 </div>
                 <div className="col-lg-6 col-sm-6 col-xs-6 col-12 text-end">
-                  <p className="m-0"><a href='https://triverseadvertising.com/' target='_blank'>site : triverse</a></p>
+                  <p className="m-0"><a href='https://triverseadvertising.com/' target='_blank' >site : triverse</a></p>
                 </div>
               </div>
             </div>

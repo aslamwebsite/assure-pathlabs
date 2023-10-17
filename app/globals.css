@@ -18,14 +18,14 @@ a {
 body {
   font-family: var(--font-family);
   color: #000;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
   letter-spacing: 1px;
 }
 
 :root {
   --font-family: 'AvertaStd', sans-serif;
-  --primary-color: #7b0ac7;
+  --primary-color: #663487;
   --secondary-color: #257bbf;
   --white-color: #fff;
   --bg-color: #deebf4;
@@ -46,6 +46,7 @@ svg {
   margin: auto;
 }
 
+.testimonialbox,
 .web-container {
   width: 85%;
   margin: auto;
@@ -121,7 +122,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.slick-slider .slick-dots li {
   margin: 0;
 }
 
@@ -129,6 +131,10 @@ ul {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.grey-background {
+  background-color: #fbfcfe;
 }
 
 .homecollection h4 {
@@ -208,8 +214,13 @@ ul {
   top: 28px;
 }
 
-header {
+.header,
+.actualprice {
   padding: 15px 0;
+}
+
+header,
+.title {
   margin-bottom: 50px;
 }
 
@@ -280,7 +291,8 @@ img {
 .enquireform .MuiInputBase-root label {
   font-weight: normal;
   text-transform: capitalize;
-  font-size: 16px;
+  font-family: var(--font-family);
+  letter-spacing: 0.5px;
 }
 
 .MuiInputBase-root.formbtn {
@@ -300,15 +312,24 @@ main {
   gap: 75px;
 }
 
-section {
+section,
+.slick-list,
+.testimonialshape,
+.slick-slider {
   width: 100%;
   float: left;
+}
+
+
+.title,
+.testimonialbox {
+  position: relative;
 }
 
 .title h3 {
   margin: 0;
   font-size: 30px;
-  line-height: 40px;
+  line-height: 60px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -319,20 +340,32 @@ section {
   background-position: 0;
 }
 
-.title {
-  margin-bottom: 50px;
+.title h3:after {
+  content: '';
+  width: 50px;
+  height: 5px;
+  display: inline-block;
+  background: var(--secondary-color);
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -50%);
 }
 
 .sliderbox {
   background: var(--white-color);
-  border: solid 1px #ededed;
   border-radius: 25px;
   padding: 25px;
   text-align: center;
   gap: 15px;
-  position:relative
+  position: relative;
+  transition: ease all 0.5s;
+  margin: 20px 0;
 }
 
+.sliderbox:hover {
+  box-shadow: 4px 4px 20px rgb(217 229 236);
+}
 
 .packagename span,
 .circleicons span {
@@ -374,7 +407,7 @@ section {
   font-size: 28px;
   font-weight: bold;
   line-height: 36px;
-  padding: 15px 0;
+  margin-bottom: 10px;
 }
 
 .actualprice svg,
@@ -390,7 +423,7 @@ section {
   border-radius: 25px;
   font-size: 28px;
   line-height: 50px;
-  width: 170px;
+  width: 150px;
   margin: 0px auto;
 }
 
@@ -399,6 +432,7 @@ section {
   font-size: 18px;
   display: grid;
   line-height: 26px;
+  margin-bottom: 20px;
 }
 
 .flex-center,
@@ -440,6 +474,7 @@ section {
 .title h3 span {
   font-size: 22px;
   line-height: 30px;
+  margin-bottom: 30px;
 }
 
 .title h3.text-white {
@@ -450,7 +485,7 @@ section {
 .condtionicon {
   width: 80px;
   height: 80px;
-  position: relative;
+  position: absolute;
   top: 50px;
   z-index: 1;
 }
@@ -473,7 +508,7 @@ section {
   text-align: center;
   width: 100%;
   right: 0;
-  top: 65%;
+  top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 20px;
@@ -487,24 +522,31 @@ section {
 .condition:nth-child(1) .conditionshape path {
   fill: #5dd6b3;
 }
+
 .condition:nth-child(2) .conditionshape path {
   fill: #6295d7;
 }
+
 .condition:nth-child(3) .conditionshape path {
   fill: #fef7a6;
 }
+
 .condition:nth-child(4) .conditionshape path {
   fill: #e5e4f4;
 }
+
 .condition:nth-child(5) .conditionshape path {
   fill: #d98594;
 }
+
 .condition:nth-child(6) .conditionshape path {
   fill: #fcd29f;
 }
+
 .condition:nth-child(7) .conditionshape path {
   fill: #e0d3de;
 }
+
 .condition:nth-child(8) .conditionshape path {
   fill: #c7efcf;
 }
@@ -531,7 +573,6 @@ section {
 .footergray {
   background-color: #d8dee8;
   padding: 50px 0;
-  margin-top: 50px;
 }
 
 .contact a {
@@ -550,7 +591,7 @@ section {
 }
 
 .bg-gradient-image {
-  bottom: -55%;
+  bottom: -50%;
   z-index: -1;
 }
 
@@ -595,7 +636,7 @@ section {
   position: absolute;
   top: 0%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background: #0f8cd2;
   padding: 10px 30px;
   border-radius: 25px;
@@ -605,19 +646,26 @@ section {
   letter-spacing: 2px;
 }
 
-.organcolumnrow {
-  margin-bottom: 50px;
+.condition {
+  margin-bottom: 35px;
 }
-.organcolumn svg path, .circleicons svg path{
+
+.organcolumn svg path,
+.circleicons svg path {
   fill: var(--white-color);
 }
+
 .circleicons svg {
   width: 50%;
 }
+
 .testimonial {
   background-image: url(/testimonial-banner.webp);
-  padding: 100px 0;
   position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: right;
 }
 
 .testimonial:before {
@@ -630,48 +678,55 @@ section {
   bottom: 0;
   z-index: 1;
 }
-.z-index-2{
+
+.z-index-2 {
   z-index: 2;
 }
-.testimonialbox{
-  background-image: url(/testimonialshape.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: inherit;
-  height: 450px;
-  padding: 50px 0;
+
+.testimonialcont {
+  position: absolute;
+  width: 93%;
+  left: 0;
+  padding: 0 30px;
 }
+
 .testimonialbox p {
-  width: 70%;
-  margin-top: 100px;
-  margin-bottom: 0;
   text-align: center;
   color: rgb(0 0 0 / 60%);
   font-size: 17px;
   line-height: 22px;
 }
 
-.testimonialbox 
- h4 {
-    margin: 0;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 20px;
-    width: 100%;
-    float: left;
-    text-align: center;
-    margin-bottom: 50px;
-}
-.cta span svg{
-  width: 50px;
-  height: 50px;
-  display: inline-block;
-  margin: 0px auto;
+.testimonialbox h4 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  width: 100%;
+  float: left;
+  text-align: center;
 }
 
-.cta {
+.cta span svg {
+  margin: 0px auto;
+  transition: ease all 0.5s;
+}
+
+.call svg {
+  width: 50px;
+}
+
+.whatsapp svg {
+  width: 50px;
+  height: 48px;
+}
+
+.cta,
+.footergray,
+.testimonialcont {
   margin-top: 50px;
 }
+
 .hsection {
   top: 15%;
   left: -3%;
@@ -682,14 +737,247 @@ section {
   width: 150px;
   height: 150px;
 }
+
 .svgwidthline {
   width: 80px;
   opacity: 0.5;
 }
+
 footer {
   margin-top: 75px;
 }
+
 .footergray p a {
   color: #8f8f8f;
   text-decoration: none;
+}
+
+.no-buttons .slick-prev,
+.no-buttons .slick-next {
+  display: none !important;
+}
+
+.slick-slider .slick-dots {
+  bottom: 15px;
+}
+
+.slick-slider .slick-dots li button:before {
+  font-size: 10px;
+  color: var(--secondary-color);
+  opacity: 1;
+}
+
+.slick-slider .slick-dots li.slick-active button:before {
+  color: var(--white-color);
+}
+
+.inputmodified label,
+.font label {
+  font-family: var(--font-family);
+  font-size: 14px;
+  line-height: 20px;
+  top: 3px;
+  letter-spacing: 0.5px;
+}
+
+.my-cart sup {
+  font-size: 12px;
+  background: #000;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  line-height: 20px;
+  border-radius: 100%;
+  left: 2px;
+  overflow: hidden;
+}
+
+.arrows .slick-next,
+.arrows .slick-prev {
+  width: 80px;
+  height: 80px;
+}
+
+.arrows .slick-next:before {
+  content: '';
+  background-image: url(/svg/right.svg);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  background-size: cover;
+  right: 75%;
+}
+
+.arrows .slick-prev:before {
+  content: '';
+  background-image: url(/svg/left.svg);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  background-size: cover;
+  left: 75%;
+}
+
+.productslider .slick-list {
+  width: 80%;
+  margin: 0px 10%;
+}
+
+.slick-slider.minusbottom .slick-dots {
+  bottom: -5%;
+}
+
+.slick-slider.navigationwhite .slick-dots {
+  bottom: -10%;
+}
+
+.slick-slider .slick-dots li button:before {
+  color: #000;
+  transition: ease all 0.5s;
+}
+
+.slick-slider .slick-dots li.slick-active button:before {
+  color: var(--secondary-color);
+  font-size: 15px;
+}
+
+.seasonalpack .sliderbox {
+  margin-top: 4vh;
+}
+
+.slick-slider.navigationwhite .slick-dots li button:before {
+  color: var(--white-color);
+}
+
+.hovershadow .sliderbox:hover {
+  box-shadow: 4px 4px 20px rgb(21 42 119 / 24%);
+}
+
+.organcolumnrow {
+  width: 96%;
+  margin: 0 auto;
+}
+
+.title h3.text-white:after {
+  background-color: var(--bg-color);
+}
+
+.top-20 {
+  top: 20%;
+}
+
+.left-inherit {
+  left: inherit;
+}
+
+.top-inherit {
+  top: inherit;
+}
+
+.svgwidthline path {
+  fill: #4462ae;
+}
+
+.p-80,
+.testimonial {
+  padding: 80px 0;
+}
+
+.leftmenu .button {
+  min-width: 120px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.fixed {
+  -webkit-animation: smoothScroll 1s forwards;
+  animation: smoothScroll 1s forwards;
+  left: 0;
+  position: fixed;
+  top: 0;
+}
+
+.header.fixed {
+  box-shadow: 0 3px 3px rgb(0 0 0 / 12%);
+  width: 100%;
+  z-index: 3;
+  background: #fff;
+}
+
+@keyframes smoothScroll {
+  0% {
+    transform: translateY(-40px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.header.fixed .menslide.fixvisible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.header .menslide.fixvisible {
+  top: 100%;
+}
+
+header {
+  min-height: 100px;
+}
+
+.gradient-layer {
+  width: 20px;
+  position: absolute;
+  background-color: var(--primary-color);
+  right: 0;
+  top: 5%;
+  bottom: 5%;
+}
+
+.cta span:hover svg {
+  transform: scale(1.15);
+}
+
+.slimenu ul li {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slimenu ul li span,
+.MuiInputBase-root.formbtn span {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.slimenu ul li span {
+  width: 25px;
+}
+
+.fixed .logo {
+  width: 20%;
+}
+
+.logo {
+  transition: ease all 0.5s;
+}
+
+.minheight-120 {
+  min-height: 120px;
+}
+
+.organcolumn .textbtn {
+  margin: 0;
+  font-weight: normal;
+}
+.hsection circle, .hsection path  {
+  fill: #c7c7c7;
+}
+.organcolumn .textbtn:after {
+  background: #c8c5c5;
 }

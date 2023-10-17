@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const TestimonialShape = () => {
+export const TestimonialShape = (props) => {
   return (
     <>
     <svg
