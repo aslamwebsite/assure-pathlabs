@@ -89,10 +89,10 @@ export default function Home() {
           </div>
         </div>
         <div className="bg-gradient-image position-absolute">
-          <Image src="/transparent-gradient.webp" alt="My Icon" width={1920} height={1760} />
+          <Image src="/gradient-layer.webp" alt="gradient file" width={1920} height={1752} />
         </div>
       </section>
-      <section className="position-relative">
+      <section className="position-relative mt-3">
         <div className="container">
           <div className="web-container">
             <div className="row">
