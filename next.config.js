@@ -5,9 +5,6 @@ const nextConfig = {
     devIndicators: {
       buildActivity: false,
     },
-    eslint: {
-      ignoreDuringBuilds: true,
-    }
   };
   
   module.exports = nextConfig;
