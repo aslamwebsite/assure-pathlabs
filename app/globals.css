@@ -70,8 +70,9 @@ svg {
   transition: color 0.3s;
   text-align: center;
   line-height: 50px;
-  font-size: 14px;
-  border-radius: 50px;
+   border-radius: 50px;
+   font-size: 14px;
+    text-transform: uppercase;
 }
 
 .button--aylen.button--inverted {
@@ -897,6 +898,8 @@ footer {
   min-width: 120px;
   height: 40px;
   line-height: 40px;
+  font-size: 16px;
+  text-transform: capitalize;
 }
 
 .fixed {
