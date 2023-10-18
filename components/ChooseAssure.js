@@ -4,6 +4,8 @@ import { Doctor } from '@/components/svg-components/Doctor';
 import { FreeHomeCollection } from '@/components/svg-components/FreeHomeCollection';
 import { Dots } from "@/components/svg-components/Dots";
 import { Line } from "@/components/svg-components/Line";
+import { Consultant } from './svg-components/Consultant';
+import { SameDayreport } from './svg-components/SameDayreport';
 
 export const ChooseAssure = () => {
   return (
@@ -31,13 +33,13 @@ export const ChooseAssure = () => {
                   </div>
                   <div className="col-lg-3 col-xs-6 col-12">
                     <div className="circleicons float-start col-12 text-center grid-center">
-                      <span className=" flex-center mb-2 button button--aylen button--round-l button--text-thick"></span>
+                      <span className=" flex-center mb-2 button button--aylen button--round-l button--text-thick"><SameDayreport /></span>
                       <p>Same Day <br/>Report</p>
                     </div>
                   </div>
                   <div className="col-lg-3 col-xs-6 col-12">
                     <div className="circleicons float-start col-12 text-center grid-center">
-                      <span className=" flex-center mb-2 button button--aylen button--round-l button--text-thick"><Doctor /></span>
+                      <span className=" flex-center mb-2 button button--aylen button--round-l button--text-thick"><Consultant /></span>
                       <p>Free Doctor <br/> Consultation</p>
                     </div>
                   </div>

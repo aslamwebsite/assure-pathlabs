@@ -71,7 +71,7 @@ export const Header = () => {
               <div className="col-12 float-start flex-center align-items-start footerrow">
                 <div className="footercolumn">
                   <div className="fheading">
-                    <h5 className="text-uppercase">Home</h5>
+                    <h5 className="text-uppercase" onClick={toggleMenu}><Link href='/'>Home</Link></h5>
                   </div>
                 </div>
                 <div className="footercolumn">

@@ -47,7 +47,7 @@ svg {
 }
 
 .testimonialbox,
-.web-container {
+.web-container, .quality {
   width: 85%;
   margin: auto;
 }
@@ -1083,7 +1083,7 @@ header {
   fill: #000
 }
 .quality li+ li {
-  margin: 8px 0;
+  margin: 10px 0;
 }
 
 .quality li {
@@ -1186,4 +1186,11 @@ header {
 .accordion__panel ul {
   margin: 10px 0;
   padding-left: 25px;
+}
+.chooseassure .circleicons span svg path{
+  transition: ease all 0.5s;
+}
+.chooseassure .circleicons span:hover svg path {
+  fill: var(--white-color) !important;
+  stroke: var(--white-color);
 }
