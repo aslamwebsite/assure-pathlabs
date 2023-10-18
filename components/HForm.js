@@ -1,41 +1,42 @@
-import React from 'react'
-import { TextField, Button} from '@mui/material';
+"use client"
+import React, { useRef } from 'react';
+import { Button} from '@mui/material';
 import SearchBar from '@/components/SearchBar'
-import styles from '../app/page.module.css'
-import { Call } from './svg-components/Call';
-import { WhatsApp } from './svg-components/WhatsApp';
+import { Attachement } from './svg-components/Attachement';
+import { Homecollection } from '@/components/Homecollection'
 
 export const HForm = () => {
+  const fileInputRef = useRef(null); 
+  const handleBrowseClick = () => {
+    fileInputRef.current.click();
+  };
+  const handleFileSelect = (e) => {
+    const selectedFile = e.target.files[0];
+  };
+  
   return (
     <>
-     <div className='enquireform'>
+      <div className='col-12 float-start d-grid gap-5'>
+      <div className='enquireform col-12 float-start'>
                     <SearchBar />
-                  
-                    <div className={styles.equireheading}>
-                        <h2><span>BOOK HOME COLLECTION</span></h2>
+                    <Button variant="outlined" className='MuiInputBase-root formbtn d-flex justify-content-between' fullWidth onClick={handleBrowseClick}>
+      <label>Upload Prescription</label>
+      <span><Attachement /></span>
+      </Button>
+      <input
+        type="file"
+        ref={fileInputRef}
+        style={{ display: 'none' }}
+        onChange={handleFileSelect}
+      />
+                    <div className='col-12 position-relative'>
+                       <Button variant="outlined" className='MuiInputBase-root formbtn d-flex justify-content-between' fullWidth >
+      <label>Download Reports</label>
+      </Button>
                     </div>
-                    <form>
-                <TextField
-                  label="Name"
-                  variant="outlined"
-                  className={styles.inputmodified}
-                  fullWidth
-                />
-               <TextField
-                  label="Email"
-                  variant="outlined"
-                  className={styles.inputmodified}
-                  fullWidth
-                />
-                <button  type="submit" className='col-12 button button--aylen button--round-l button--text-thick'>
-                  Submit
-                </button>
-              </form>
-              <div className='col-12 float-start cta flex-center justify-content-center'>
-                      <span className='col-lg-5 col-xs-6 col-12 grid-center text-center gap-1 whatsapp'><WhatsApp /> <p>WhatsApp</p></span>
-                      <span className='col-lg-5 col-xs-6 col-12 grid-center text-center gap-1 call'><Call />  <p>Call</p></span>
-              </div>
-                  </div>
+                    </div>
+                   <Homecollection />
+                   </div>                 
     </>
   )
 }

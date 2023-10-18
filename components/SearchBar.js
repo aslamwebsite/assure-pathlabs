@@ -3,14 +3,12 @@ import React, { useState, useRef } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import SearchIcon from '@mui/icons-material/Search';
-import Button from '@mui/material/Button';
-import { AttachFile } from '@mui/icons-material';
+import Button from '@mui/material/Button';  
 import { Attachement } from './svg-components/Attachement';
 
 const SearchBar = () => {
   const [inputValue, setInputValue] = useState('');
   const [selectedOption, setSelectedOption] = useState(null);
-  const fileInputRef = useRef(null); 
 
   const options = [
     { label: 'H PYLORI IgM ANTIBODIES'},
@@ -27,13 +25,6 @@ const SearchBar = () => {
     setInputValue(newInputValue);
   };
 
-  const handleBrowseClick = () => {
-    fileInputRef.current.click();
-  };
-
-  const handleFileSelect = (e) => {
-    const selectedFile = e.target.files[0];
-  };
 
   return (
     <div className='col-12 pull-left position-relative'>
@@ -72,25 +63,7 @@ const SearchBar = () => {
           </div>
         </div>
       )}
-      <Button variant="outlined" className='MuiInputBase-root formbtn d-flex justify-content-between' fullWidth onClick={handleBrowseClick}>
-      <label>Upload Prescription</label>
-      <span><Attachement /></span>
-      </Button>
-      <input
-        type="file"
-        ref={fileInputRef}
-        style={{ display: 'none' }}
-        onChange={handleFileSelect}
-      />
-        <div className='col-12 position-relative'>
-                       <Button variant="outlined" className='MuiInputBase-root formbtn d-flex justify-content-between' fullWidth >
-      <label>Download Reports</label>
-      </Button>
-                    </div>
-      {/* <div className='MuiInputBase-root formbtn download'>
-        <label>Download Reports</label>
-        <span></span>
-      </div> */}
+   
     </div>
   );
 };

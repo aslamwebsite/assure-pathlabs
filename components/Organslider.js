@@ -25,7 +25,7 @@ export const Organslider = (props) => {
                 <div>
                 <div className="organcolumnrow flex-center">
                   <div className="organcolumn">
-                    <div className="sliderbox border-0 bg-transparent mt-0">
+                    <div className="sliderbox border-0 bg-transparent">
                       <div className="packagename">
                         <span className="bg-transparent"><Thyroid /></span>
                       </div>
@@ -45,7 +45,7 @@ export const Organslider = (props) => {
                     <div>
                 <div className="organcolumnrow flex-center">
                 <div className="organcolumn">
-                    <div className="sliderbox border-0 bg-transparent mt-0">
+                    <div className="sliderbox border-0 bg-transparent ">
                       <div className="packagename">
                       <span className="bg-transparent"><Kidney /></span>
                       </div>
@@ -65,7 +65,7 @@ export const Organslider = (props) => {
                     <div>
                 <div className="organcolumnrow flex-center">
                 <div className="organcolumn">
-                    <div className="sliderbox border-0 bg-transparent mt-0">
+                    <div className="sliderbox border-0 bg-transparent ">
                       <div className="packagename">
                       <span className="bg-transparent"><Lungs /></span>
                       </div>
@@ -85,7 +85,7 @@ export const Organslider = (props) => {
                     <div>
                 <div className="organcolumnrow flex-center">
                 <div className="organcolumn">
-                    <div className="sliderbox border-0 bg-transparent mt-0">
+                    <div className="sliderbox border-0 bg-transparent ">
                       <div className="packagename">
                       <span className="bg-transparent"><HeartOrgan /></span>
                       </div>
@@ -105,7 +105,7 @@ export const Organslider = (props) => {
                     <div>
                 <div className="organcolumnrow flex-center">
                 <div className="organcolumn">
-                    <div className="sliderbox border-0 bg-transparent mt-0">
+                    <div className="sliderbox border-0 bg-transparent ">
                       <div className="packagename">
                       <span className="bg-transparent"><Liver /></span>
                       </div>

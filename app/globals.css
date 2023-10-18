@@ -10,9 +10,9 @@ body {
   overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+a, .contact a, .fheading h5 a, .homecollection h3 a, .textbtn a  {
+  color: inherit ;
+  text-decoration: none ;
 }
 
 body {
@@ -70,6 +70,7 @@ svg {
   transition: color 0.3s;
   text-align: center;
   line-height: 50px;
+  font-size: 14px;
   border-radius: 50px;
 }
 
@@ -123,7 +124,7 @@ h3,
 h4,
 h5,
 h6,
-.slick-slider .slick-dots li {
+.slick-slider .slick-dots li, .detailrow p {
   margin: 0;
 }
 
@@ -153,11 +154,6 @@ ul {
   margin: 0;
 }
 
-.homecollection h3 a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .menslide {
   position: fixed;
   background: #f3f3f3;
@@ -168,7 +164,11 @@ ul {
   transition: ease all 0.5s;
   visibility: hidden;
   opacity: 0;
-  z-index: 2;
+  z-index: 9;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hemburgur span {
@@ -252,6 +252,9 @@ header,
   top: 120px;
 }
 
+.fixed .menslide.active {
+  top: 100px;
+}
 img {
   max-width: 100%;
 }
@@ -293,6 +296,8 @@ img {
   text-transform: capitalize;
   font-family: var(--font-family);
   letter-spacing: 0.5px;
+  left: 10px;
+  position: relative
 }
 
 .MuiInputBase-root.formbtn {
@@ -322,7 +327,8 @@ section,
 
 
 .title,
-.testimonialbox {
+.testimonialbox,
+.slimenu ul li {
   position: relative;
 }
 
@@ -360,11 +366,13 @@ section,
   gap: 15px;
   position: relative;
   transition: ease all 0.5s;
-  margin: 20px 0;
+  margin: 20px auto;
+  max-width: 350px;
+  box-shadow: 4px 4px 20px rgb(217 229 236);
 }
 
 .sliderbox:hover {
-  box-shadow: 4px 4px 20px rgb(217 229 236);
+  background: #f7fafd ;
 }
 
 .packagename span,
@@ -474,7 +482,7 @@ section,
 .title h3 span {
   font-size: 22px;
   line-height: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .title h3.text-white {
@@ -560,7 +568,8 @@ section,
 }
 
 .footercolumn,
-.fheading h5 {
+.fheading h5,
+.slimenu ul li {
   font-size: 14px;
   line-height: 26px;
 }
@@ -573,11 +582,6 @@ section,
 .footergray {
   background-color: #d8dee8;
   padding: 50px 0;
-}
-
-.contact a {
-  text-decoration: none;
-  color: inherit;
 }
 
 .ftrbdr {
@@ -732,7 +736,9 @@ section,
   left: -3%;
   opacity: 0.5;
 }
-
+.endminus {
+  right: -3%;
+}
 .svgwidth {
   width: 150px;
   height: 150px;
@@ -778,6 +784,7 @@ footer {
   line-height: 20px;
   top: 3px;
   letter-spacing: 0.5px;
+  left: 10px;
 }
 
 .my-cart sup {
@@ -806,7 +813,7 @@ footer {
   height: 100%;
   opacity: 1;
   background-size: cover;
-  right: 75%;
+  right: 25%;
 }
 
 .arrows .slick-prev:before {
@@ -817,12 +824,12 @@ footer {
   height: 100%;
   opacity: 1;
   background-size: cover;
-  left: 75%;
+  left: 25%;
 }
 
 .productslider .slick-list {
-  width: 80%;
-  margin: 0px 10%;
+  width: 90%;
+  margin: 0px 5%;
 }
 
 .slick-slider.minusbottom .slick-dots {
@@ -845,6 +852,7 @@ footer {
 
 .seasonalpack .sliderbox {
   margin-top: 4vh;
+  border: solid 1px var(--bg-color)
 }
 
 .slick-slider.navigationwhite .slick-dots li button:before {
@@ -903,7 +911,7 @@ footer {
   box-shadow: 0 3px 3px rgb(0 0 0 / 12%);
   width: 100%;
   z-index: 3;
-  background: #fff;
+  background: var(--white-color);
 }
 
 @keyframes smoothScroll {
@@ -923,10 +931,14 @@ footer {
 
 .header .menslide.fixvisible {
   top: 100%;
+  height: auto;
+  z-index: 2;
+  display: inline-block;
 }
 
 header {
   min-height: 100px;
+  background-color: var(--white-color);
 }
 
 .gradient-layer {
@@ -947,6 +959,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 12px 8px;
+  transition: ease all 0.5s;
 }
 
 .slimenu ul li span,
@@ -960,7 +974,7 @@ header {
 }
 
 .fixed .logo {
-  width: 20%;
+  width: 40%;
 }
 
 .logo {
@@ -975,9 +989,198 @@ header {
   margin: 0;
   font-weight: normal;
 }
-.hsection circle, .hsection path  {
+
+.hsection circle,
+.hsection path {
   fill: #c7c7c7;
 }
+
 .organcolumn .textbtn:after {
   background: #c8c5c5;
+}
+
+.headersearchbox {
+  width: 500px;
+  transition: ease all 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.headersearchbox .inputmodified {
+  border-radius: 160px;
+}
+
+.headersearchbox .inputmodified .MuiInputBase-root {
+  border-radius: 50px;
+}
+
+.fixed .headersearchbox {
+  opacity: 1;
+  visibility: visible;
+}
+
+.headersearchbox .inputmodified .MuiInputBase-root .searchbutton {
+  background: transparent;
+}
+
+.headersearchbox .inputmodified .MuiInputBase-root .searchbutton svg path {
+  fill: #909090 !important;
+}
+
+.slimenu ul li:before {
+  content: '';
+  background: #2598cf;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  z-index: -1;
+  transition: ease all 0.5s;
+  top: 0;
+}
+
+.slimenu ul li:hover:before {
+  height: 100%;
+}
+
+.slimenu ul li:hover {
+  color: var(--white-color);
+}
+
+.slimenu ul li:hover span svg path {
+  fill: var(--white-color) !important;
+}
+/* About Us  */
+.colorhomecollection{
+  background-color: var(--primary-color);
+  padding: 40px;
+    border-radius: 50px;
+}
+.colorhomecollection h2:before, .colorhomecollection h2:after {
+  opacity: 0;
+}
+
+.colorhomecollection h2 span{
+  color: var(--white-color);
+}
+.colorhomecollection p {
+  margin: 0;
+  color: var(--white-color);
+}
+.chooseassure .col-lg-3:nth-child(1) .circleicons span {
+  background: #5dd6b3;
+}
+.chooseassure .col-lg-3:nth-child(2) .circleicons span {
+  background: #6295d7;
+}
+.chooseassure .col-lg-3:nth-child(3) .circleicons span {
+  background: #fef7a6;
+}
+
+.chooseassure .circleicons svg path {
+  fill: #000
+}
+.quality li+ li {
+  margin: 8px 0;
+}
+
+.quality li {
+  list-style: disc;
+}
+.organcolumnrow .sliderbox {
+  box-shadow: none;
+}
+.detailrow .highlights p {
+  padding: 10px 30px;
+  border: solid 1px #d8dee7;
+  border-radius: 50px;
+}
+.detailrow {
+  padding-bottom: 20px;
+  border-bottom: solid 2px #fff;
+  margin-bottom: 20px;
+}
+.detailrow p {
+  padding: 0 25px;
+}
+.detailrow:last-child{
+  border: none;
+}
+
+.accordion__item+.accordion__item,
+.sitemapcol li+li,
+.keyfeaturecont li {
+  margin: 10px 0;
+}
+
+.accordion__button {
+  background-color: var(--bg-color);
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  display: flex;
+  align-items: center;
+  border-radius: 35px;
+  transition: ease all 0.5s;
+  display: flex;
+  justify-content: space-between;
+}
+.accordion__button span{
+  padding-right: 25px;
+}
+.accordion__button:hover, .faqcont [aria-expanded=true] {
+  background-color: #9cd6ff
+}
+.accordion__panel ul li{
+  list-style: disc;
+  margin: 5px 0;
+}
+
+.detaildescrp .button.button--aylen svg {
+  width: 30px;
+}
+
+.accordion__button:before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  right: 2%;
+  color: #000;
+  content: "\002B";
+  font-size: 24px;
+  font-weight: 300;
+  margin: 0;
+  display: none;
+}
+
+.accordion__button[aria-expanded="true"]::before,
+.accordion__button[aria-selected="true"]::before,
+.categorymanager [aria-expanded="true"] .plusbutton:before {
+  content: "\2212";
+}
+
+[hidden] {
+  display: none;
+}
+
+.accordion__panel {
+  padding: 20px;
+  animation: fadein 0.35s ease-in;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.accordion__panel ul {
+  margin: 10px 0;
+  padding-left: 25px;
 }
