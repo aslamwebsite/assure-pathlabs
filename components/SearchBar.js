@@ -1,69 +1,125 @@
-"use client"
-import React, { useState, useRef } from 'react';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import React, { useState, useRef, useEffect } from 'react';
+import { TextField, Box } from '@mui/material';
+import styles from '../app/page.module.css';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import SearchIcon from '@mui/icons-material/Search';
-import Button from '@mui/material/Button';  
-import { Attachement } from './svg-components/Attachement';
 
 const SearchBar = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [value, setValue] = useState(0);
+  const [searchText, setSearchText] = useState(''); // State to store the text entered in the TextField
+  const [filteredOptions, setFilteredOptions] = useState([]); // State to store the filtered options
+  const [isDropdownVisible, setDropdownVisible] = useState(false); // State to control dropdown visibility
+  const textFieldRef = useRef(null);
+  const dropdownRef = useRef(null);
 
-  const options = [
-    { label: 'H PYLORI IgM ANTIBODIES'},
-    { label: 'QUARDUAPLE MATERNAL SECREEN (QUADRUPLE TEST)'},
-    { label: '17-ALPHA-HYDROXY PROGESTERONE'},
-    { label: '24 HOURS URINE PROTEIN ELECTROPHORESIS'},
-    { label: 'ADENOSINE DEAMINASE'},
-    { label: 'ALANINE AMINOTRANSFERASE ( ALT ), SGPT (LIVER)'},
-    { label: 'ALBUMIN (KIDNEY,LIVER)'},
-    { label: 'ALBUMIN GLOBULIN A/G RATIO'},
-  ];
-
-  const handleInputChange = (_, newInputValue) => {
-    setInputValue(newInputValue);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
+  const handleInputChange = (event) => {
+    setSearchText(event.target.value);
+  };
+
+  const filterOptions = () => {
+    if (value === 0) {
+      // Filter options for "Test" tab
+      const filteredTestOptions = options.filter((option) =>
+        option.label.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setFilteredOptions(filteredTestOptions);
+    } else if (value === 1) {
+      // Filter options for "Packages" tab
+      const filteredPackageOptions = poptions.filter((poption) =>
+        poption.label.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setFilteredOptions(filteredPackageOptions);
+    }
+  };
+
+  const handleTextFieldClick = () => {
+    setDropdownVisible(true); // Show the dropdown when the TextField is clicked
+  };
+
+  const handleBodyClick = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      // If the click is outside of the dropdown, hide it
+      setDropdownVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    filterOptions();
+  }, [searchText, value]);
+
+  useEffect(() => {
+    // Add a click event listener to the body
+    document.body.addEventListener('click', handleBodyClick);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.body.removeEventListener('click', handleBodyClick);
+    };
+  }, []);
+
+  const options = [
+    { label: 'H PYLORI IgM ANTIBODIES' },
+    { label: 'QUARDUAPLE MATERNAL SECREEN (QUADRUPLE TEST)' },
+    { label: '17-ALPHA-HYDROXY PROGESTERONE' },
+    { label: '24 HOURS URINE PROTEIN ELECTROPHORESIS' },
+    { label: 'ADENOSINE DEAMINASE' },
+    { label: 'ALANINE AMINOTRANSFERASE ( ALT ), SGPT (LIVER)' },
+    { label: 'ALBUMIN (KIDNEY, LIVER)' },
+    { label: 'ALBUMIN GLOBULIN A/G RATIO' },
+  ];
+
+  const poptions = [
+    { label: 'Assure Complete Wellness' },
+    { label: 'Senior Citizen Package' },
+    { label: 'Basic Allergy Package' },
+  ];
 
   return (
     <div className='col-12 pull-left position-relative'>
-      <Autocomplete
-        id="search-bar"
-        options={options}
-        inputValue={inputValue}
-        onInputChange={handleInputChange}
-        getOptionLabel={(option) => option.label}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label="Find your package/test/scan"
-            fullWidth
-            className='inputmodified'
-            InputProps={{
-              ...params.InputProps,
-              endAdornment: (
-                <div className='searchbutton'>
-                    <SearchIcon color="action"/>
-                    
-                </div>
-              )
-            }}
-          />
-        )}
-      />
-      {selectedOption && (
-        <div className='dropdownpackage'>
-          <div className='row'>
-            <div className='col-md-12'>
-              <ul className='srv_dropdown p-0 m-0'>
-                <li data-id="1">{selectedOption.label} <span>{selectedOption.value}</span></li>
-              </ul>
+      <TextField
+        label="Find your package/test/scan"
+        variant="outlined"
+        className={styles.inputmodified}
+        fullWidth
+        onChange={handleInputChange}
+        ref={textFieldRef}
+        onClick={handleTextFieldClick}
+        InputProps={{
+          endAdornment: (
+            <div className='searchbutton'>
+              <SearchIcon color="action" />
             </div>
+          ),
+        }}
+      />
+      {isDropdownVisible && (
+        <div className='dropdowntab pb-2 col-12' ref={dropdownRef}>
+          <Box className='mb-3 grey-background border-bottom col-12'>
+            <Tabs value={value} onChange={handleChange} centered>
+              <Tab label="Test" />
+              <Tab label="Packages" />
+            </Tabs>
+          </Box>
+          <div className='listdata col-12 float-start'>
+            {filteredOptions.length > 0 ? (
+              <ul>
+                {filteredOptions.map((option, index) => (
+                  <li key={index}>{option.label}</li>
+                ))}
+              </ul>
+            ) : (
+              <ul>
+                <li className='border-0 text-center opacity-50 text-uppercase'>No matching results found.</li>
+              </ul>
+            )}
           </div>
         </div>
       )}
-   
     </div>
   );
 };

@@ -3,6 +3,7 @@ import React from 'react'
 import { Line } from "@/components/svg-components/Line";
 
 export const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <>
      <footer className="col-12 float-start position-relative">
@@ -103,7 +104,7 @@ export const Footer = () => {
             <div className="web-container">
               <div className="row">
                 <div className="col-lg-6 col-sm-6 col-xs-6 col-12">
-                  <p className="m-0">&copy; 2023 All Rights Reserved. </p>
+                  <p className="m-0">&copy; {currentYear} All Rights Reserved. </p>
                 </div>
                 <div className="col-lg-6 col-sm-6 col-xs-6 col-12 text-end">
                   <p className="m-0"><a href='https://triverseadvertising.com/' target='_blank' >site : triverse</a></p>
