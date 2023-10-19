@@ -8,6 +8,7 @@ import { Attachement } from './svg-components/Attachement'
 import { Booktest } from './svg-components/Booktest';
 import { Report } from './svg-components/Report';
 import SearchBar from './SearchBar';
+import { IndividualTest } from './svg-components/IndividualTest';
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -36,7 +37,7 @@ export const Header = () => {
     <header>
        <div className={header ? 'header fixed' : 'header'}>
       <div className="container">
-      <div className="row align-items-end">
+      <div className="row align-items-center">
         <div className="col-lg-3">
           <div className="logo col-md-6 col-12">
            <Link href='/'> <Logo /></Link>
@@ -44,12 +45,13 @@ export const Header = () => {
         </div>
         <div className="col-lg-9">
           <div className="d-flex align-items-end justify-content-end">
-            <div className="navbar p-0 align-items-end gap-4">
-            <div className='headersearchbox mx-5'>
+            <div className="navbar p-0 align-items-end gap-2">
+            <div className='headersearchbox mx-2'>
                     <SearchBar />
                 </div>
               <div className="d-flex justify-content-end align-items-end gap-4">
-                <div className="leftmenu float-start gap-4 d-flex">
+                <div className="leftmenu float-start gap-3 d-flex">
+                <span className="button button--aylen button--round-l button--text-thick "><Link href='/individual-test'><span><IndividualTest/></span>Individual Test</Link></span>
                   <span className="button button--aylen button--round-l button--text-thick my-cart">My Cart</span>
                   <span  className="button button--aylen button--round-l button--text-thick">Login</span>
                 </div>
@@ -143,7 +145,7 @@ export const Header = () => {
                     <div className="row">
                       <div className="slimenu d-flex justify-content-end">
                         <ul className="d-flex gap-5 m-0">
-                          <li> <span><Attachement /></span>Upload Prescription</li>
+                         <li> <span><Attachement /></span>Upload Prescription</li>
                           <li><span><Booktest /></span>Book a Test</li>
                           <li><span><Report /></span>Booking & Reports</li>
                         </ul>
