@@ -45,8 +45,8 @@ export const Header = () => {
         <div className="col-lg-9">
           <div className="d-flex align-items-end justify-content-end">
             <div className="navbar p-0 align-items-end gap-2">
-            <div className='headersearchbox mx-2'>
-                    {/* <SearchBar /> */}
+            <div className='headersearchbox mx-2 enquireform '>
+                    <SearchBar />
                 </div>
               <div className="d-flex justify-content-end align-items-end gap-4">
                 <div className="leftmenu float-start gap-3 d-flex">
